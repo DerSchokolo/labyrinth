@@ -5,7 +5,7 @@
 
 #include "maze.h"
 
-/** HINWEIS: Um die Aufgabe zu loesen, mï¿½ssen Sie diesen Code nicht lesen und
+/** HINWEIS: Um die Aufgabe zu lösen, müssen Sie diesen Code nicht lesen und
  * nicht verstehen!
  */
 int attemptEscapeFromMaze(MazeCell *startPoint, const char *solutionString) {
@@ -13,16 +13,14 @@ int attemptEscapeFromMaze(MazeCell *startPoint, const char *solutionString) {
   MazeCell *currentPos = startPoint;
 
   for (size_t i = 0; i < strlen(solutionString); i++) {
-    if (solutionString[i] == 'N' && &currentPos->north != NULL) {
+    if (solutionString[i] == 'N') {
       currentPos = currentPos->north;
-    } else if (solutionString[i] == 'E' && currentPos->east != NULL) {
+    } else if (solutionString[i] == 'E') {
       currentPos = currentPos->east;
-    } else if (solutionString[i] == 'S' && currentPos->south != NULL) {
+    } else if (solutionString[i] == 'S') {
       currentPos = currentPos->south;
-    } else if (solutionString[i] == 'W' && currentPos->west != NULL) {
+    } else if (solutionString[i] == 'W') {
       currentPos = currentPos->west;
-    } else {
-      return -ERR_WALKED_INTO_WALL;
     }
 
     if (currentPos->item == WAND) {
@@ -40,7 +38,7 @@ int attemptEscapeFromMaze(MazeCell *startPoint, const char *solutionString) {
     return -ERR_NOT_ALL_ITEMS;
 }
 
-/** HINWEIS: Um die Aufgabe zu lï¿½sen, mï¿½ssen Sie diesen Code nicht lesen und
+/** HINWEIS: Um die Aufgabe zu lösen, müssen Sie diesen Code nicht lesen und
  * auch nicht verstehen!
  */
 MazeCell *createMaze(int mazeRows, int mazeCols, const uint8_t *mazeArray) {
